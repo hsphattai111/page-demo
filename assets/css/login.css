@@ -1,0 +1,367 @@
+/* Login/Register page styles */
+:root {
+    --color-one: #FAFBFF;
+    --color-two: #FFCA42;
+    --color-text2: #000000;
+    --color-text3: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.logo-section img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-section h1 {
+    font-size: 28px;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--color-text3);
+    margin-top: 8px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group.error input {
+    border-color: #e74c3c;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #e74c3c;
+    min-height: 18px;
+    margin-top: 2px;
+}
+
+.form-group.checkbox {
+    flex-direction: row;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--color-text3);
+    cursor: pointer;
+}
+
+.form-group.checkbox a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-group.checkbox a:hover {
+    text-decoration: underline;
+}
+
+.register-btn {
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.login-link p {
+    font-size: 14px;
+    color: var(--color-text3);
+}
+
+.login-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: #764ba2;
+}
+
+.social-login {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 24px;
+}
+
+.divider {
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text3);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid #e0e0e0;
+}
+
+.social-btn.facebook {
+    color: #3b5998;
+}
+
+.social-btn.facebook:hover {
+    background: #f0f2f5;
+    border-color: #3b5998;
+}
+
+.social-btn.google {
+    color: #db4437;
+}
+
+.social-btn.google:hover {
+    background: #f8f8f8;
+    border-color: #db4437;
+}
+
+.social-btn.github {
+    color: #333;
+}
+
+.social-btn.github:hover {
+    background: #f6f8fa;
+    border-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .logo-section h1 {
+        font-size: 24px;
+    }
+
+    .login-form {
+        gap: 16px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+        font-size: 16px;
+    }
+
+    .register-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-card {
+        padding: 24px 16px;
+        border-radius: 12px;
+    }
+
+    .logo-section {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .logo-section img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-section h1 {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .login-form {
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+        padding: 11px 14px;
+        border-radius: 6px;
+    }
+
+    .form-group.checkbox {
+        gap: 8px;
+    }
+
+    .form-group.checkbox input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .form-group.checkbox label {
+        font-size: 12px;
+    }
+
+    .register-btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    .login-link p {
+        font-size: 13px;
+    }
+
+    .social-buttons {
+        gap: 12px;
+    }
+
+    .social-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+}

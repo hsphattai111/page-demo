@@ -3,12 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SoftwareM4 - Đăng Ký</title>
+    <link rel="icon" href="assets/image/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 </head>
 <body>
-    <h1>Login Page</h1>
-    <p>nguyen cong hoang sang</p>
-    <p>nguyen cong hoang sang</p>
-    <p>nguyen cong hoang sang</p>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-section">
+                    <img src="https://mobirise.com/extensions/softwarem4/software-app/assets/images/logo.png" alt="logo" class="logo">
+                    <h1>SoftwareM4</h1>
+                </div>
+                <p class="subtitle">Tạo tài khoản mới</p>
+            </div>
+
+            <form class="login-form" id="registerForm">
+                <div class="form-group">
+                    <label for="fullname">Họ và tên</label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="fullname" 
+                        placeholder="Nhập họ và tên của bạn"
+                        required
+                    >
+                    <span class="error-message" id="fullname-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Nhập email của bạn"
+                        required
+                    >
+                    <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Nhập số điện thoại"
+                        required
+                    >
+                    <span class="error-message" id="phone-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Tối thiểu 8 ký tự"
+                        required
+                    >
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu</label>
+                    <input 
+                        type="password" 
+                        id="confirm-password" 
+                        name="confirm-password" 
+                        placeholder="Nhập lại mật khẩu"
+                        required
+                    >
+                    <span class="error-message" id="confirm-password-error"></span>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input 
+                        type="checkbox" 
+                        id="terms" 
+                        name="terms"
+                        required
+                    >
+                    <label for="terms">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a></label>
+                    <span class="error-message" id="terms-error"></span>
+                </div>
+
+                <button type="submit" class="register-btn">Đăng Ký</button>
+
+                <div class="login-link">
+                    <p>Đã có tài khoản? <a href="index.html">Đăng nhập</a></p>
+                </div>
+            </form>
+
+            <div class="social-login">
+                <p class="divider">Hoặc đăng ký với</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-btn google">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+                    <a href="#" class="social-btn github">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', handleSubmit);
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                alert('Đăng ký thành công!');
+                form.reset();
+            }
+        }
+
+        function validateForm() {
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const terms = document.getElementById('terms').checked;
+
+            clearErrors();
+            let isValid = true;
+
+            if (fullname.length < 3) {
+                showError('fullname-error', 'Họ và tên phải có ít nhất 3 ký tự');
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('email-error', 'Email không hợp lệ');
+                isValid = false;
+            }
+
+            const phoneRegex = /^[0-9]{10,11}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('phone-error', 'Số điện thoại phải có 10-11 chữ số');
+                isValid = false;
+            }
+
+            if (password.length < 8) {
+                showError('password-error', 'Mật khẩu phải có ít nhất 8 ký tự');
+                isValid = false;
+            }
+
+            if (password !== confirmPassword) {
+                showError('confirm-password-error', 'Mật khẩu xác nhận không khớp');
+                isValid = false;
+            }
+
+            if (!terms) {
+                showError('terms-error', 'Vui lòng đồng ý với điều khoản');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = message;
+                element.parentElement.classList.add('error');
+            }
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.textContent = '';
+                el.parentElement.classList.remove('error');
+            });
+        }
+    </script>
 </body>
 </html>
