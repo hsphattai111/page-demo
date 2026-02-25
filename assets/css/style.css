@@ -643,3 +643,61 @@ footer{
     font-size: large;
 }
     /* --------- End mid content --------- */
+
+    /* Mobile responsive styles */
+    /* Hide desktop menu and show toggle on small screens; stack content */
+    .menu-toggle{display:none}
+
+    @media (max-width: 768px){
+        header{
+            height: 70px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        header .slogan .image_slogan{width:36px;height:36px}
+        header .slogan .name_slogan a{font-size:18px}
+        header .menu{display:none}
+        .menu-toggle{display:flex;align-items:center;gap:8px;font-size:22px;color:var(--color-text2);cursor:pointer}
+        header .Icon-social{display:none}
+
+        .background_introduce{height:auto;padding:60px 0 40px;margin-top:70px}
+        .background_introduce h1{font-size:32px}
+        .background_introduce p{font-size:15px}
+        .background_introduce .buttom{flex-direction:column;gap:12px}
+        .background_introduce .buttom .box1, .background_introduce .buttom .box2{width:100%;max-width:280px}
+
+        .mid{padding-top:20px;height:auto}
+        .mid_content{flex-direction:column;align-items:center}
+        .mid_content .backround_image img{width:100%;height:auto;max-width:520px}
+        .mid_content .content_son{width:100%;max-width:520px;margin:20px 0}
+
+        .mid .tiltle .inner_tiltle{flex-direction:column;align-items:center;padding:20px}
+        .mid .tiltle .inner_tiltle .image_tiltle{position:static;bottom:auto;width:100%;max-width:360px}
+
+        .under_mid .inner_under_mid ul{grid-template-columns:repeat(1,1fr)}
+
+        .section .inner_section .option{flex-direction:column}
+        .section .inner_section .option .box{width:100%;margin-bottom:20px}
+
+        .profile .inner_profile .team_members{flex-direction:column;align-items:center}
+
+        .comment .inner_comment .list_comment{flex-direction:column}
+
+        .view .inner_view .fake_video{height:320px}
+
+        .form .inner_form{padding:40px}
+        .form .inner_form .form_group{flex-direction:column}
+        .form .inner_form .form_group input{width:100%;margin-bottom:12px}
+        .form .inner_form a{left:0;display:block;width:100%;text-align:center}
+
+        /* Mobile menu open state */
+        header .menu.open{display:flex;position:absolute;left:0;right:0;top:70px;background:var(--color-one);flex-direction:column;padding:12px;border-top:1px solid rgba(255,255,255,0.05)}
+        header .menu.open ul{flex-direction:column}
+        header .menu.open ul li{padding:12px 16px}
+    }
+
+    @media (max-width:420px){
+        .background_introduce h1{font-size:26px}
+        .mid_content .content_son h1{font-size:36px}
+        .carrer .inner_carrer .tiltle_carrer h1{font-size:36px}
+    }

@@ -66,6 +66,9 @@
           </li>
         </ul>
       </div>
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </header>
     <div class="main_content">
       <div class="background_introduce">
@@ -498,5 +501,15 @@
       <span>tac gia</span>
       <span>Nguyen Cong Hoang Sang</span>
     </footer>
+    <script>
+      (function(){
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.querySelector('header .menu');
+        if(!toggle || !menu) return;
+        toggle.addEventListener('click', function(){
+          menu.classList.toggle('open');
+        });
+      })();
+    </script>
   </body>
 </html>
