@@ -510,6 +510,40 @@
           menu.classList.toggle('open');
         });
       })();
+      (function(){
+        const btn = document.getElementById('phonePreview');
+        if(!btn) return;
+        btn.addEventListener('click', openPhonePreview);
+        function openPhonePreview(){
+          if(document.querySelector('.phone-overlay')) return;
+          const overlay = document.createElement('div');
+          overlay.className = 'phone-overlay';
+          overlay.innerHTML = `
+            <div class="device">
+              <button class="device-close" aria-label="Close">✕</button>
+              <div class="device-notch"></div>
+              <div class="device-screen"></div>
+            </div>
+          `;
+          const screen = overlay.querySelector('.device-screen');
+          ['header', '.main_content', 'footer'].forEach(sel => {
+            const el = document.querySelector(sel);
+            if(!el) return;
+            const clone = el.cloneNode(true);
+            if(clone.tagName && clone.tagName.toLowerCase() === 'header'){
+              clone.style.position = 'static';
+              clone.style.top = 'auto';
+              clone.style.width = '100%';
+            }
+            screen.appendChild(clone);
+          });
+          document.body.appendChild(overlay);
+          overlay.querySelector('.device-close').addEventListener('click', function(){
+            overlay.remove();
+          });
+        }
+      })();
     </script>
+    <button id="phonePreview" class="phone-preview-btn" title="Phone preview">📱</button>
   </body>
 </html>

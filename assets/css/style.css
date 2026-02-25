@@ -701,3 +701,81 @@ footer{
         .mid_content .content_son h1{font-size:36px}
         .carrer .inner_carrer .tiltle_carrer h1{font-size:36px}
     }
+
+    /* Phone mockup / preview styles */
+    .phone-preview-btn{
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #111;
+        color: #fff;
+        border: none;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        cursor: pointer;
+    }
+
+    .phone-overlay{
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2001;
+    }
+
+    .device{
+        width: 390px;
+        height: 844px;
+        background: #111;
+        border-radius: 44px;
+        padding: 18px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .device-notch{
+        width: 210px;
+        height: 28px;
+        background: #111;
+        border-radius: 14px;
+        margin-bottom: 6px;
+    }
+
+    .device-screen{
+        width: 100%;
+        height: calc(100% - 34px);
+        background: #fff;
+        border-radius: 22px;
+        overflow: auto;
+    }
+
+    .device-close{
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* ensure cloned header inside device behaves statically */
+    .device-screen header{position: static !important;width:100%}
+    .device-screen header .menu{display:flex !important}
+
+    @media (max-width:420px){
+        .phone-preview-btn{right:12px;bottom:12px;width:48px;height:48px}
+    }
