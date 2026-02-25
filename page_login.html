@@ -132,6 +132,9 @@
             if (validateForm()) {
                 alert('Đăng ký thành công!');
                 form.reset();
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
             }
         }
 
