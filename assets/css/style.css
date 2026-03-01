@@ -1,6 +1,6 @@
     /* Header_start */
 header{
-            position: fixed;
+            position: sticky;
             top: 0;
             left: 0;
     display: flex;
@@ -78,7 +78,6 @@ header .Icon-social ul li a{
     position: relative;
     height: 588.97px;
     background-color: black;
-     margin-top: 105px;
    
     display: flex;
     align-items: center;
